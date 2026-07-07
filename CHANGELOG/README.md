@@ -1,4 +1,8 @@
-AQARION RO-Crate explores a research object model where scientific claims, supporting evidence, verification procedures, and cryptographic certificates are represented as explicit machine-readable entities.
+AQARION RO-Crate is an experimental extension profile implemented as a forked prototype of the RO-Crate ecosystem. The purpose of the fork is to test claim, evidence, certificate, and validation structures before proposing compatibility improvements or formal profile adoption upstream
+
+---
+
+AQARION explores a research object model where scientific claims, supporting evidence, verification procedures, and cryptographic certificates are represented as explicit machine-readable entities.
 
 ---
 
