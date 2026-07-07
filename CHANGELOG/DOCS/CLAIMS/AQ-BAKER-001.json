@@ -1,0 +1,38 @@
+{
+ "claim_id":"AQ-BAKER-001",
+
+ "claim":
+ "The vertical-strip observable projection of the Baker map has defect spectrum (1,1,0,...)",
+
+ "system":
+ {
+   "type":"finite Ulam approximation",
+   "map":"Baker map"
+ },
+
+ "observable":
+ {
+   "partition":"vertical strips",
+   "projection":"orthogonal conditional expectation"
+ },
+
+ "evidence":
+ [
+   {
+    "type":"numerical_verification",
+    "artifact":"baker_defect.py"
+   }
+ ],
+
+ "result":
+ {
+   "rank":2,
+   "singular_values":[1,1,0,0]
+ },
+
+ "status":
+ "COMPUTATIONALLY VERIFIED",
+
+ "certificate":
+ "sha256:..."
+}
