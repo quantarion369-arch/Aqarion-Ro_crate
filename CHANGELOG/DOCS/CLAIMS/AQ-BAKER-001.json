@@ -1,38 +1,161 @@
 {
- "claim_id":"AQ-BAKER-001",
+  "id": "AQ-BAKER-001",
+  "type": "ComputationalObservation",
 
- "claim":
- "The vertical-strip observable projection of the Baker map has defect spectrum (1,1,0,...)",
+  "title": "Defect Spectrum of the Baker Map Under Vertical-Strip Observable Projection",
 
- "system":
- {
-   "type":"finite Ulam approximation",
-   "map":"Baker map"
- },
+  "statement": "For the specified finite Ulam discretisations of the Baker map with a vertical-strip observable projection, the computed defect operator exhibits a stable singular spectrum with two unit singular values followed by numerically zero singular values.",
 
- "observable":
- {
-   "partition":"vertical strips",
-   "projection":"orthogonal conditional expectation"
- },
+  "scope": {
+    "system": {
+      "name": "Baker map",
+      "class": "finite measure-preserving dynamical system"
+    },
+    "method": {
+      "operator": "Ulam discretisation",
+      "observable_projection": "orthogonal projection onto vertical-strip observables"
+    },
+    "resolutions_tested": [
+      16,
+      32,
+      64
+    ]
+  },
 
- "evidence":
- [
-   {
-    "type":"numerical_verification",
-    "artifact":"baker_defect.py"
-   }
- ],
+  "definitions": [
+    {
+      "id": "DEF-BAKER-001",
+      "name": "Baker map",
+      "description": "Piecewise-linear expanding map used as the dynamical system under investigation."
+    },
+    {
+      "id": "DEF-Ulam-001",
+      "name": "Ulam discretisation",
+      "description": "Finite matrix approximation of the transfer operator using a uniform grid partition."
+    },
+    {
+      "id": "DEF-DEFECT-001",
+      "name": "Observable defect operator",
+      "description": "Operator measuring the component of the one-step evolution that leaves the chosen observable subspace."
+    }
+  ],
 
- "result":
- {
-   "rank":2,
-   "singular_values":[1,1,0,0]
- },
+  "dependencies": [
+    "DEF-BAKER-001",
+    "DEF-Ulam-001",
+    "DEF-DEFECT-001"
+  ],
 
- "status":
- "COMPUTATIONALLY VERIFIED",
+  "observable": {
+    "partition": {
+      "type": "vertical strips"
+    },
+    "projection": {
+      "type": "orthogonal projection",
+      "checks": {
+        "idempotent_P2_equals_P": "PASS",
+        "self_adjoint_PT_equals_P": "PASS"
+      }
+    }
+  },
 
- "certificate":
- "sha256:..."
+  "operators": {
+    "transfer_defect": {
+      "definition": "D_T = (I-P)KP"
+    },
+    "koopman_defect": {
+      "definition": "D_U = (I-P)K^T P"
+    }
+  },
+
+  "evidence": [
+    {
+      "type": "computational_verification",
+      "artifact": "evidence/computation/baker_defect.py",
+      "description": "Executable computation of Ulam matrix, observable projection, and defect singular values."
+    },
+    {
+      "type": "numerical_results",
+      "artifact": "evidence/results/baker_defect_convergence.json",
+      "description": "Resolution comparison for N=16,32,64."
+    }
+  ],
+
+  "results": {
+    "transfer_defect": {
+      "singular_values": [
+        1.0,
+        1.0,
+        0.0
+      ],
+      "effective_rank": 2,
+      "operator_norm": 1.0
+    },
+    "koopman_defect": {
+      "singular_values": [
+        1.0,
+        1.0,
+        0.0
+      ],
+      "effective_rank": 2,
+      "operator_norm": 1.0
+    }
+  },
+
+  "verification": {
+    "markov_property": {
+      "status": "PASS",
+      "criterion": "Ulam matrix columns sum to one within numerical tolerance"
+    },
+    "projection_validation": {
+      "status": "PASS"
+    },
+    "resolution_stability": {
+      "status": "PASS",
+      "tested_resolutions": [
+        16,
+        32,
+        64
+      ],
+      "observation": "The computed leading singular values remained stable to floating-point precision across tested resolutions."
+    }
+  },
+
+  "interpretation": {
+    "supported": [
+      "The selected observable projection is not invariant under the computed evolution operator.",
+      "The defect has a low-rank numerical signature for the tested discretisations.",
+      "The leading defect singular values are stable across the tested resolutions."
+    ],
+    "not_claimed": [
+      "Universal convergence of all Ulam defect spectra.",
+      "A general theorem for all Baker map partitions.",
+      "That the defect spectrum directly measures mixing rate.",
+      "That the vertical-strip observable is a Koopman-invariant subspace."
+    ]
+  },
+
+  "status": {
+    "claim_status": "ACTIVE",
+    "verification_status": "COMPUTATIONALLY_VERIFIED",
+    "formal_status": "NOT_FORMALLY_PROVED",
+    "reproducibility_status": "VERIFIED"
+  },
+
+  "certificate": {
+    "type": "verification_manifest",
+    "algorithm": "SHA-256",
+    "artifact": "verification/certificates/AQ-BAKER-001.sha256",
+    "value": "PENDING"
+  },
+
+  "revision": {
+    "version": "1.0.0",
+    "history": [
+      {
+        "event": "CREATED",
+        "description": "Initial AQARION claim entry for Baker map defect spectrum observation."
+      }
+    ]
+  }
 }
