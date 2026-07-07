@@ -159,3 +159,152 @@
     ]
   }
 }
+{
+  "claim_id": "CLAIM-BAKER-DEFECT-001",
+  "version": "1.1.0",
+
+  "title": "Finite Ulam defect spectrum of aligned Baker map vertical-strip projections",
+
+  "type": "ComputationalResult",
+
+  "statement": "For the tested finite Ulam discretizations of the Baker map with aligned vertical-strip coarse projections, the defect operator exhibits a stable low-rank singular spectrum containing two unit singular values, with remaining computed singular values at numerical zero within tolerance.",
+
+  "system": {
+    "name": "Baker map",
+    "class": "piecewise-linear deterministic dynamical system",
+    "representation": "finite Ulam discretization"
+  },
+
+  "operators": {
+    "transfer_defect": {
+      "symbol": "D_T",
+      "definition": "(I-P) K P",
+      "interpretation": "failure of projected state distributions to remain in the observable subspace"
+    },
+
+    "koopman_defect": {
+      "symbol": "D_U",
+      "definition": "(I-P) K^T P",
+      "interpretation": "failure of projected observables to remain closed under the discretized Koopman action"
+    }
+  },
+
+  "observable_projection": {
+    "type": "orthogonal conditional expectation",
+    "partition": "aligned vertical-strip partition",
+    "verified_properties": [
+      "P^2 = P",
+      "P^T = P"
+    ]
+  },
+
+  "verification": {
+    "tested_resolutions": [
+      {
+        "N": 16,
+        "grid": "16x16",
+        "transfer_singular_values": [
+          1.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        "koopman_singular_values": [
+          1.0,
+          1.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "N": 32,
+        "grid": "32x32",
+        "transfer_singular_values": [
+          1.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        "koopman_singular_values": [
+          1.0,
+          1.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "N": 64,
+        "grid": "64x64",
+        "transfer_singular_values": [
+          1.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        "koopman_singular_values": [
+          1.0,
+          1.0,
+          0.0,
+          0.0
+        ]
+      }
+    ],
+
+    "certificates": {
+      "projector_idempotence_error": "~0",
+      "projector_symmetry_error": "~0",
+      "markov_column_error": "~0",
+      "defect_norm_transfer": 1.0,
+      "defect_norm_koopman": 1.0
+    }
+  },
+
+  "observed_invariant": {
+    "singular_spectrum": [
+      1.0,
+      1.0,
+      0.0
+    ],
+    "numerical_rank": 2,
+    "tolerance": "1e-12"
+  },
+
+  "interpretation": {
+    "verified": [
+      "The defect is not zero for this observable projection.",
+      "The defect has a stable rank-2 numerical signature across tested resolutions.",
+      "The leading defect singular values saturate the contraction bound."
+    ],
+
+    "hypotheses": [
+      "The rank-2 structure may reflect the two-branch geometry of the Baker map.",
+      "The transfer and Koopman defect spectra coincide for this tested discretization."
+    ]
+  },
+
+  "limitations": [
+    "This result concerns tested finite Ulam discretizations.",
+    "It does not by itself prove a continuum defect theorem.",
+    "It does not establish a universal property for all partitions.",
+    "The mechanism producing rank 2 requires separate mathematical analysis."
+  ],
+
+  "next_experiment": {
+    "name": "Defect scaling with partition refinement",
+    "fixed_resolution": "N=64",
+    "partitions": [
+      2,
+      4,
+      8,
+      16
+    ],
+    "metrics": [
+      "singular spectrum",
+      "numerical rank",
+      "defect norm",
+      "spectral entropy"
+    ]
+  },
+
+  "status": "COMPUTATIONALLY VERIFIED"
+}
