@@ -1,0 +1,49 @@
+AQARION/
+│
+├── CHANGELOG/
+│
+├── AI-TEAM/
+│   │
+│   ├── GPT/
+│   │   ├── README.md
+│   │   ├── suggestions/
+│   │   ├── architecture_reviews/
+│   │   └── referee_audits/
+│   │
+│   ├── KIMI/
+│   │   ├── certification_reviews/
+│   │   ├── debugging_logs/
+│   │   └── recommendations/
+│   │
+│   ├── PERPLEXITY/
+│   │   ├── literature_checks/
+│   │   └── external_context/
+│   │
+│   └── HUMAN_VERIFICATION/
+│       ├── accepted/
+│       ├── rejected/
+│       └── pending/
+
+---
+
+AQARION AI CONTRIBUTION LOG
+
+Date:
+Tool:
+Purpose:
+
+AI contribution:
+- proposed certificate schema
+- suggested theorem boundary clarification
+
+Human decision:
+ACCEPTED / MODIFIED / REJECTED
+
+Reason:
+...
+
+Final artifact:
+link/path
+
+---
+
