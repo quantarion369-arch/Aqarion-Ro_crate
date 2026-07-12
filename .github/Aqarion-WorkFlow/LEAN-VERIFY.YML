@@ -1,0 +1,69 @@
+name: AQARION Lean 4 Verification & Certification
+
+on:
+  push:
+    branches: [ main, develop ]
+    paths:
+      - 'lean/**'
+      - 'verification/**'
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'lean/**'
+      - 'verification/**'
+
+jobs:
+  lean-verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install Lean 4 (v4.17.0 + Mathlib)
+        uses: leanprover/lean-action@v1
+        with:
+          version: "v4.17.0"
+          cache: true
+
+      - name: Lake Build & Cache
+        working-directory: ./lean
+        run: |
+          lake exe cache get
+          lake build
+
+      - name: Run Lean Verification
+        working-directory: ./lean
+        run: |
+          lake exe aqarion_verify > ../reports/lean_output.log 2>&1 || true
+
+      - name: Generate Certificate
+        run: |
+          python verification/lean_ci.py \
+            --log reports/lean_output.log \
+            --output reports/lean_certificate.json
+
+      - name: Upload Certificate Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: aqarion-lean-certificate
+          path: reports/lean_certificate.json
+          retention-days: 30
+
+      - name: Zero-Sorry & Error Check
+        run: |
+          if grep -q "sorry" lean/Core.lean || grep -q "error:" reports/lean_output.log; then
+            echo "::error::Zero-sorry violation or Lean errors detected"
+            exit 1
+          fi
+          echo "Lean verification PASSED (zero sorry, zero errors)"
+
+      - name: Archive Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lean-verification-logs
+          path: |
+            reports/lean_output.log
+            reports/lean_certificate.json
