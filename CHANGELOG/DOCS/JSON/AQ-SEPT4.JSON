@@ -1,0 +1,360 @@
+{
+  "@context": "https://w3id.org/ro/crate/1.1/context",
+  "@graph": [
+    {
+      "@type": "CreativeWork",
+      "@id": "ro-crate-metadata.json",
+      "conformsTo": {
+        "@id": "https://w3id.org/ro/crate/1.1"
+      },
+      "about": {
+        "@id": "./"
+      },
+      "description": "RO-Crate metadata for AQARION V114 adversarial continuation audit"
+    },
+    {
+      "@id": "./",
+      "@type": "Dataset",
+      "name": "AQARION \u2014 Exact Observable Quotients & Defect Geometry (V114 Adversarial Continuation)",
+      "alternateName": "AQARION V114",
+      "version": "V114",
+      "datePublished": "2026-09-04",
+      "license": {
+        "@id": "https://spdx.org/licenses/MIT"
+      },
+      "author": [
+        {
+          "@id": "#aqarion-project"
+        },
+        {
+          "@id": "#james-aaron"
+        }
+      ],
+      "description": "AQARION studies exact and approximate observable quotients of finite dynamical systems via defect operator D_Pi=(I-P_Pi) K P_Pi. V114 freezes corrections: c*_graph mismatch (c*_D=n-c_bip != n-c_q) with minimal counterexample n=4 constant map discrete partition; DVI killed with row-space and g1<g_infty counterexamples; replacement one-step escape theorem rank D = dim(V+KV)-dim V; c*_D submodularity remains CONJECTURE with 4,306,250 exhaustive n=5 checks + 250k fresh random n=7-9 zero violations; Lean Gate F open.",
+      "keywords": [
+        "finite dynamical systems",
+        "Koopman operator",
+        "defect operator",
+        "observable quotient",
+        "bipartite rank identity",
+        "M-convex",
+        "submodular partition function",
+        "lumpability",
+        "Lean 4 formalization",
+        "RO-Crate"
+      ],
+      "hasPart": [
+        {
+          "@id": "README-LITE.MD"
+        },
+        {
+          "@id": "UNDERVIEW.MD"
+        },
+        {
+          "@id": "src/aqarion_core.py"
+        },
+        {
+          "@id": "src/aqarion_verifier.py"
+        },
+        {
+          "@id": "src/aqarion_classifier.py"
+        },
+        {
+          "@id": "src/aqarion_atlas_generator.py"
+        },
+        {
+          "@id": "src/aqarion_certificate.py"
+        },
+        {
+          "@id": "lean/J30B_PureGraph_Theorem.lean"
+        },
+        {
+          "@id": "lean/AQARION_Defect_Kernel.lean"
+        },
+        {
+          "@id": "certs/aqarion_rank_identity_n5_full_cert.json"
+        },
+        {
+          "@id": "governance/EVIDENCE_REGISTRY.json"
+        },
+        {
+          "@id": "governance/PROOF-LEDGER.MD"
+        },
+        {
+          "@id": "governance/KILLED_CLAIMS.md"
+        },
+        {
+          "@id": "paper/aqarion_publication.tex"
+        }
+      ],
+      "mentions": [
+        {
+          "@id": "https://doi.org/10.5070/C66165701"
+        },
+        {
+          "@id": "https://doi.org/10.1016/j.disc.2009.04.033"
+        },
+        {
+          "@id": "https://doi.org/10.1007/s00493-026-00199-x"
+        },
+        {
+          "@id": "https://huggingface.co/spaces/Quantarion9/AQARION-ACADEMY"
+        },
+        {
+          "@id": "https://github.com/JASKSG9/AQARION-ARITHMETIC-FDS-FINITE-DYNAMICAL-SYSTEMS-"
+        }
+      ],
+      "isBasedOn": [
+        {
+          "@id": "https://huggingface.co/spaces/Quantarion9/AQARION-ACADEMY/resolve/main/README-LITE.MD/"
+        },
+        {
+          "@id": "https://github.com/JASKSG9/AQARION-ARITHMETIC-FDS-FINITE-DYNAMICAL-SYSTEMS-/blob/main/UNDERVIEW.MD/"
+        }
+      ],
+      "aqarion:rootHash": "020a9110088010116075e1812c98bcd2bcc4905367fa8943a68c8cd224cf284e",
+      "aqarion:canonicalHash_v3": "f53844fc92de1d8771be993fa54e93fc01a15b8112080c192d13f607d87756b4",
+      "aqarion:status": {
+        "analyticDerivation": "CLOSED-REPORTED",
+        "computationalCertificate": "REPRODUCIBLE-PENDING",
+        "leanFormalization": "OPEN",
+        "independentChecking": "OPEN",
+        "C4": "BLOCKED",
+        "publication": "BLOCKED"
+      },
+      "aqarion:claimFirewallV114": {
+        "row_c(N-c)_repair": "CLOSED",
+        "A_N_exc_period4": "CLOSED",
+        "B3_exception_2_3": "CLOSED -1/20",
+        "R(x)>=1/8_four_residues": "CLOSED",
+        "B3_multiset_ge6": "CONDITIONAL",
+        "k=4_exceptional_family": "PENDING_VERIFICATION",
+        "all_k_ge4_Ek_infty": "OPEN - odd k missing",
+        "r_D=m-c_bip": "CLOSED",
+        "g=r": "KILLED",
+        "r_le_g_le_r+beta1": "CANDIDATE",
+        "c_star_D=n-m+r=n-c_bip": "DEFINITION",
+        "c_star_D_submodularity": "CONJECTURE - 4306250 exhaustive n=5 + 250k random zero violations",
+        "n-c_q_graphic_rank": "CLOSED - different object",
+        "n-c_q=c_star": "FALSE - constant map n=4 counterexample",
+        "DVI_rank=min_observables": "KILLED - row-space counterexample T=(0,0,1) Pi={{0,2},{1}} and g1<g_infty counterexample T=(0,0,1,2) Pi={{0,2,3},{1}}",
+        "one_step_escape_g1=rankD": "REPLACEMENT THEOREM - target for Lean",
+        "463_record_certificate": "PENDING",
+        "lean_candidate": "CANDIDATE - zero literal sorry but no compile",
+        "lean_4_33_1_build": "OPEN",
+        "nanoda_comparator": "OPEN"
+      },
+      "aqarion:criticalFindings": [
+        {
+          "id": "V114-CF1-graph-mismatch",
+          "title": "c* graph mismatch",
+          "description": "Full bipartite defect graph c_bip (with isolated R vertices) gives r=m-c_bip, c*_D=n-c_bip. Ordinary quotient graph c_q gives n-c_q graphic rank. Conflated in V112 promotion. Counterexample: n=4 T=(0,0,0,0) discrete Pi => c_bip=4 r=0 c*_D=0 but c_q=1 n-c_q=3",
+          "evidence": "independent python recomputation, rank via SVD and graph certificate"
+        },
+        {
+          "id": "V114-CF2-DVI-false",
+          "title": "DVI false",
+          "description": "Proposed rank = minimal additional scalar observables false. Row-space refinement fails and g1 < g_infty. Counterexamples: T=(0,0,1) Pi={{0,2},{1}} D=[[0.25,-0.5,0.25]...] row values identical on 0,2; T=(0,0,1,2) Pi={{0,2,3},{1}} rank 1 but closure dims [2,3,4] => g_infty=2",
+          "replacement": "One-step escape theorem rank D = dim((I-P)K(V)) = dim(V+KV)-dim V"
+        }
+      ],
+      "aqarion:computationalEvidence": {
+        "rank_identity_n_le_5": {
+          "totalPairs": 166483,
+          "mismatches": 0,
+          "certSHA": "9f46215143812290b212ed7030309f9be724503c5cdc4c018aaae883d3befb3d"
+        },
+        "c_star_D_exhaustive_n5": {
+          "maps": 3125,
+          "unorderedPartitionPairs": 1378,
+          "totalChecks": 4306250,
+          "violations": 0
+        },
+        "c_star_D_fresh_random": {
+          "n7": {
+            "maps": 100,
+            "pairs": 100000,
+            "violations": 0
+          },
+          "n8": {
+            "maps": 100,
+            "pairs": 100000,
+            "violations": 0
+          },
+          "n9": {
+            "maps": 50,
+            "pairs": 50000,
+            "violations": 0
+          },
+          "total": 250000
+        },
+        "recomputed_n3_n4": {
+          "n3": {
+            "total": 675,
+            "violations": 0
+          },
+          "n4_sample": {
+            "total": 6750,
+            "violations": 0
+          }
+        }
+      },
+      "aqarion:leanGate": {
+        "requiredVersion": "4.33.1",
+        "releaseDate": "2026-08-21",
+        "axiomWhitelist": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "forbiddenAxioms": [
+          "Lean.trustCompiler",
+          "sorryAx"
+        ],
+        "checks": [
+          "lake build",
+          "zero sorry/admit scan",
+          "#print axioms <theorem>",
+          "Comparator/landrun",
+          "lean4export",
+          "nanoda",
+          "fresh checkout hash receipt"
+        ],
+        "currentStatus": "OPEN - no build performed in this environment, lean not installed"
+      },
+      "conformsTo": {
+        "@id": "https://w3id.org/ro/crate/1.1"
+      }
+    },
+    {
+      "@id": "#aqarion-project",
+      "@type": "Organization",
+      "name": "AQARION Project",
+      "alternateName": "AQARION Research Node #10878"
+    },
+    {
+      "@id": "#james-aaron",
+      "@type": "Person",
+      "name": "James Aaron",
+      "alternateName": "Aqarion9",
+      "identifier": "https://www.facebook.com/61558690326243",
+      "affiliation": {
+        "@id": "#aqarion-project"
+      }
+    },
+    {
+      "@id": "https://doi.org/10.5070/C66165701",
+      "@type": "ScholarlyArticle",
+      "name": "Quotients of M-convex sets and M-convex functions",
+      "author": [
+        {
+          "@type": "Person",
+          "name": "Marie-Charlotte Brandenburg"
+        },
+        {
+          "@type": "Person",
+          "name": "Georg Loho"
+        },
+        {
+          "@type": "Person",
+          "name": "Ben Smith"
+        }
+      ],
+      "datePublished": "2026",
+      "journal": "Combinatorial Theory",
+      "volumeNumber": "6",
+      "issueNumber": "1",
+      "identifier": "https://escholarship.org/uc/item/9p44h18d",
+      "description": "Unifies quotients of matroids, polymatroids, valuated matroids and strong maps in Murota discrete convex analysis; ten equivalent characterizations for M-convex sets. Cited as structural support for quotient language, not proof of AQARION-specific formulas."
+    },
+    {
+      "@id": "https://doi.org/10.1016/j.disc.2009.04.033",
+      "@type": "ScholarlyArticle",
+      "name": "Submodular partition functions",
+      "author": [
+        {
+          "@type": "Person",
+          "name": "O. Amini"
+        },
+        {
+          "@type": "Person",
+          "name": "F. Mazoit"
+        },
+        {
+          "@type": "Person",
+          "name": "N. Nisse"
+        },
+        {
+          "@type": "Person",
+          "name": "S. Thomass\u00e9"
+        }
+      ],
+      "datePublished": "2009",
+      "journal": "Discrete Mathematics",
+      "description": "Introduces submodularity on partition functions, extending usual set-function submodularity; basis for partition-function route to c*_D submodularity."
+    },
+    {
+      "@id": "https://doi.org/10.1007/s00493-026-00199-x",
+      "@type": "ScholarlyArticle",
+      "name": "Quotient-Convergence of Submodular Setfunctions",
+      "author": [
+        {
+          "@type": "Person",
+          "name": "Krist\u00f3f B\u00e9rczi"
+        },
+        {
+          "@type": "Person",
+          "name": "M\u00e1rton Borb\u00e9nyi"
+        },
+        {
+          "@type": "Person",
+          "name": "L\u00e1szl\u00f3 Lov\u00e1sz"
+        },
+        {
+          "@type": "Person",
+          "name": "L\u00e1szl\u00f3 M\u00e1rton T\u00f3th"
+        }
+      ],
+      "datePublished": "2026-01-28",
+      "journal": "Combinatorica",
+      "description": "Every quotient-convergent sequence of finite increasing submodular setfunctions converges to an increasing submodular setfunction on a Borel space. Completeness under quotient-convergence. Relevant for limit theory of AQARION quotients."
+    },
+    {
+      "@id": "README-LITE.MD",
+      "@type": "File",
+      "name": "README-LITE.MD V108",
+      "encodingFormat": "text/markdown",
+      "contentUrl": "https://huggingface.co/spaces/Quantarion9/AQARION-ACADEMY/resolve/main/README-LITE.MD/",
+      "version": "V108",
+      "description": "Q&A overview, status dashboard, M-convex properties, work report with adversarial findings, V108 analytic core closed Lean open C4 blocked"
+    },
+    {
+      "@id": "UNDERVIEW.MD",
+      "@type": "File",
+      "name": "UNDERVIEW.MD v3.0",
+      "encodingFormat": "text/markdown",
+      "contentUrl": "https://github.com/JASKSG9/AQARION-ARITHMETIC-FDS-FINITE-DYNAMICAL-SYSTEMS-/blob/main/UNDERVIEW.MD/",
+      "version": "v3.0",
+      "description": "Publication candidate: defect operator engine, bipartite rank identity, evidence taxonomy, killed claims, repo structure, key results n<=5 166483 pairs, Lean formalization 7 sorries"
+    },
+    {
+      "@id": "src/aqarion_core.py",
+      "@type": "File",
+      "name": "aqarion_core.py",
+      "encodingFormat": "text/x-python",
+      "description": "Defect operator engine D=(I-P)KP, graph certificate rank=m-c_comp, invariants E2, kappa"
+    },
+    {
+      "@id": "lean/J30B_PureGraph_Theorem.lean",
+      "@type": "File",
+      "name": "J30B_PureGraph_Theorem.lean",
+      "encodingFormat": "text/x-lean",
+      "description": "0-sorry pure graph theorem, candidate [FV]"
+    },
+    {
+      "@id": "https://spdx.org/licenses/MIT",
+      "@type": "CreativeWork",
+      "name": "MIT License"
+    }
+  ]
+}
